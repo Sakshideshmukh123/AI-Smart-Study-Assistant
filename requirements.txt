@@ -1,0 +1,6 @@
+streamlit
+pypdf
+google-genai>=3.2.0
+reportlab
+matplotlib
+pillow
