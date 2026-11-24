@@ -6,6 +6,8 @@ Application configuration and styling constants for ExamPrep AI.
 APP_NAME = "ExamPrep AI"
 APP_TAGLINE = "The Student Exam Planner"
 APP_ICON = "🎓"
+APP_VERSION = "v2.4"
+GITHUB_REPO_URL = "https://github.com/Sakshideshmukh123/AI-Smart-Study-Assistant"
 
 # Color Palette (MyStudyLife inspired clean EdTech theme)
 COLORS = {
@@ -39,7 +41,16 @@ html, body, [class*="css"], .stApp {
 #MainMenu, footer, header { visibility: hidden; }
 .stDeployButton { display: none; }
 
-/* ── Top Navigation Bar ── */
+/* ── Top Header Navigation Bar ── */
+.app-header-bar {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: 0.75rem 1.6rem;
+    margin-bottom: 1.8rem;
+    box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+}
+
 .brand-text {
     font-size: 1.55rem;
     font-weight: 800;
@@ -63,6 +74,19 @@ html, body, [class*="css"], .stApp {
     color: white;
     font-size: 1.25rem;
     box-shadow: 0 4px 10px rgba(2, 132, 199, 0.28);
+}
+
+.header-tag-pill {
+    background: #F0F9FF;
+    border: 1px solid #BAE6FD;
+    color: #0369A1;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-left: 0.4rem;
 }
 
 /* ── Top Menu Segmented Control ── */
@@ -297,6 +321,69 @@ html, body, [class*="css"], .stApp {
     font-size: 0.92rem;
     font-weight: 500;
     margin-bottom: 1.2rem;
+}
+
+/* ── Professional SaaS Footer ── */
+.app-footer-wrapper {
+    background: #FFFFFF;
+    border-top: 1px solid #E2E8F0;
+    border-radius: 24px 24px 0 0;
+    padding: 3rem 2.5rem 1.5rem 2.5rem;
+    margin-top: 4rem;
+    box-shadow: 0 -4px 20px -2px rgba(15, 23, 42, 0.02);
+}
+
+.footer-col-title {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #0F172A;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 1rem;
+}
+
+.footer-link-item {
+    font-size: 0.9rem;
+    color: #64748B;
+    margin-bottom: 0.55rem;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.footer-link-item a {
+    color: #475569;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.footer-link-item a:hover {
+    color: #0284C7;
+    text-decoration: underline;
+}
+
+.footer-tech-tag {
+    background: #F1F5F9;
+    border: 1px solid #E2E8F0;
+    color: #475569;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
+    display: inline-block;
+    margin: 0.2rem 0.2rem 0.2rem 0;
+}
+
+.footer-bottom-bar {
+    border-top: 1px solid #F1F5F9;
+    padding-top: 1.5rem;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    font-size: 0.85rem;
+    color: #94A3B8;
 }
 </style>
 """

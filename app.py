@@ -11,6 +11,7 @@ from views.library_view import render_library_view
 from views.pyq_view import render_pyq_view
 from views.answer_view import render_answer_view
 from views.planner_view import render_planner_view
+from views.footer import render_footer
 
 
 def init_session_state():
@@ -48,7 +49,7 @@ def main():
     # 3. Initialize State
     init_session_state()
 
-    # 4. Top Navigation Bar
+    # 4. Top Header & Navigation Bar
     active_view = render_navbar()
 
     # 5. Route to Active View
@@ -62,6 +63,9 @@ def main():
 
     view_handler = view_routes.get(active_view, render_home_view)
     view_handler()
+
+    # 6. Global Application Footer
+    render_footer()
 
 
 if __name__ == "__main__":
