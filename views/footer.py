@@ -1,5 +1,5 @@
 """
-Application footer component with brand info, quick navigation, tech stack, and GitHub links.
+Application footer component — clean, minimalist, and fully responsive.
 """
 
 import streamlit as st
@@ -8,80 +8,48 @@ from config import GITHUB_REPO_URL, APP_VERSION
 
 def render_footer():
     """
-    Renders a comprehensive, modern SaaS footer at the bottom of the page.
+    Renders a sleek, bug-free, modern SaaS footer at the bottom of the page.
     """
-    st.markdown(f"""
-    <div class="app-footer-wrapper">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem;">
-            <!-- Column 1: Brand & Mission -->
-            <div>
-                <div style="font-size: 1.35rem; font-weight: 800; color: #0F172A; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem;">
-                    🎓 ExamPrep<span style="color: #0284C7;">AI</span>
-                </div>
-                <p style="font-size: 0.88rem; color: #64748B; line-height: 1.6; margin-bottom: 1rem;">
-                    The intelligent university exam preparation platform. Built for students to discover recurring question trends, practice active recall, generate marks-calibrated model answers, and plan visual revision schedules.
-                </p>
-                <div>
-                    <span class="footer-tech-tag">Python 3.12</span>
-                    <span class="footer-tech-tag">Google Gemini</span>
-                    <span class="footer-tech-tag">ReportLab PDF</span>
-                    <span class="footer-tech-tag">Streamlit</span>
-                </div>
-            </div>
+    st.markdown("<div style='height: 3.5rem;'></div>", unsafe_allow_html=True)
+    st.markdown("---")
 
-            <!-- Column 2: Platform Modules -->
-            <div>
-                <div class="footer-col-title">Core Modules</div>
-                <div class="footer-link-item">🏠 Overview & Metric Dashboard</div>
-                <div class="footer-link-item">📂 Study Materials Library</div>
-                <div class="footer-link-item">🔍 PYQ Repetition Trend Analyzer</div>
-                <div class="footer-link-item">✍️ AI Model Answer Studio</div>
-                <div class="footer-link-item">📅 Visual Study Schedule Planner</div>
-            </div>
+    col_left, col_center, col_right = st.columns([4, 4, 3], vertical_alignment="center")
 
-            <!-- Column 3: High-Yield Student Features -->
-            <div>
-                <div class="footer-col-title">Interactive Tools</div>
-                <div class="footer-link-item">⚡ 60-Sec Active Recall Flashcards</div>
-                <div class="footer-link-item">🎯 Real-Time Exam Readiness Meter</div>
-                <div class="footer-link-item">📋 Evaluator Marking Schemes</div>
-                <div class="footer-link-item">💡 Exam Hall Memory Mnemonics</div>
-                <div class="footer-link-item">⚠️ Common Pitfalls & Mistakes Guide</div>
+    with col_left:
+        st.markdown(
+            """
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span style="font-weight: 800; font-size: 1.05rem; color: #0F172A;">🎓 ExamPrep<span style="color: #0284C7;">AI</span></span>
+                <span style="background: #F1F5F9; border: 1px solid #E2E8F0; color: #475569; font-size: 0.72rem; font-weight: 700; padding: 0.15rem 0.55rem; border-radius: 9999px;">The Student Exam Planner</span>
             </div>
+            """,
+            unsafe_allow_html=True
+        )
 
-            <!-- Column 4: Open Source & Developer -->
-            <div>
-                <div class="footer-col-title">Developer & Project</div>
-                <div class="footer-link-item">
-                    🐙 <a href="{GITHUB_REPO_URL}" target="_blank">GitHub Repository</a>
-                </div>
-                <div class="footer-link-item">
-                    📄 <a href="{GITHUB_REPO_URL}#readme" target="_blank">Documentation & Architecture</a>
-                </div>
-                <div class="footer-link-item">
-                    ⚖️ License: MIT Open Source
-                </div>
-                <div class="footer-link-item">
-                    👩‍💻 Developed by Sakshi Deshmukh
-                </div>
-                <div style="margin-top: 0.8rem;">
-                    <a href="{GITHUB_REPO_URL}" target="_blank" style="text-decoration: none;">
-                        <span style="background: #0284C7; color: white; padding: 0.35rem 0.85rem; border-radius: 9999px; font-size: 0.78rem; font-weight: 700;">
-                            ⭐ Star on GitHub
-                        </span>
-                    </a>
-                </div>
+    with col_center:
+        st.markdown(
+            """
+            <div style="text-align: center; font-size: 0.85rem; color: #64748B;">
+                Crafted with ❤️ for university & engineering students worldwide.
             </div>
-        </div>
+            """,
+            unsafe_allow_html=True
+        )
 
-        <!-- Bottom Copyright Row -->
-        <div class="footer-bottom-bar">
-            <div>
-                © 2026 <b>ExamPrep AI</b>. Crafted with ❤️ for university & engineering students worldwide.
+    with col_right:
+        st.markdown(
+            f"""
+            <div style="text-align: right; font-size: 0.85rem;">
+                <a href="{GITHUB_REPO_URL}" target="_blank" style="text-decoration: none; color: #0284C7; font-weight: 700;">
+                    🐙 GitHub
+                </a>
+                <span style="color: #CBD5E1; margin: 0 0.4rem;">•</span>
+                <span style="color: #64748B;">MIT License</span>
+                <span style="color: #CBD5E1; margin: 0 0.4rem;">•</span>
+                <span style="color: #94A3B8;">{APP_VERSION}</span>
             </div>
-            <div>
-                MIT License &nbsp;•&nbsp; Academic Portfolio Project &nbsp;•&nbsp; {APP_VERSION}
-            </div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+            """,
+            unsafe_allow_html=True
+        )
+    
+    st.markdown("<div style='height: 1.5rem;'></div>", unsafe_allow_html=True)
