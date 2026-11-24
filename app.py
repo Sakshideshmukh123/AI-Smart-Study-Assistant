@@ -24,7 +24,9 @@ def init_session_state():
         "pyq_results": [],
         "generated_answers": {},
         "study_plan": None,
-        "api_key": ""
+        "api_key": "",
+        "mastered_questions": set(),
+        "active_view": "Home"
     }
     for key, value in defaults.items():
         if key not in st.session_state:

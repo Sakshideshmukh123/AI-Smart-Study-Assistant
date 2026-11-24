@@ -1,5 +1,5 @@
 """
-Visual study planner view (Timetable Image + A4 PDF export).
+Visual study planner view (Timetable Image + A4 PDF export) with interactive subject autofill.
 """
 
 import re
@@ -16,6 +16,33 @@ def render_planner_view():
     st.markdown("### **📅 Visual Study Planner**")
     st.caption("Generate a structured day-by-day revision schedule with a phone-friendly visual image and A4 PDF.")
 
+    # Interactive autofill helper
+    default_subjs = ""
+    if st.session_state.pyq_results:
+        top_topics = [
+            "Supervised & Unsupervised Learning",
+            "K-Means Clustering & PCA",
+            "Decision Trees & Information Gain",
+            "Bias-Variance Tradeoff & Regularization",
+            "Model Evaluation (Confusion Matrix & ROC)"
+        ]
+        default_subjs = "\n".join(top_topics)
+    elif "Syllabus" in st.session_state.documents and st.session_state.documents["Syllabus"]:
+        default_subjs = "Unit 1: Foundations of Machine Learning\nUnit 2: Classification & Decision Trees\nUnit 3: Clustering & Dimensionality Reduction\nUnit 4: Model Evaluation & Ensembles"
+
+    col_btn_fill, _ = st.columns([2.5, 4])
+    with col_btn_fill:
+        if st.button("✨ Auto-fill Sample CS/ML Modules", help="Quickly populates 4 core university modules for testing."):
+            st.session_state["preset_planner_subjs"] = (
+                "Supervised & Unsupervised Learning\n"
+                "K-Means Clustering & PCA\n"
+                "Decision Trees & Regularization\n"
+                "Model Evaluation Metrics"
+            )
+            st.rerun()
+
+    preset_val = st.session_state.pop("preset_planner_subjs", default_subjs or "Data Mining\nMachine Learning\nDatabase Systems\nComputer Networks")
+
     with st.form("study_plan_form"):
         col1, col2 = st.columns(2)
         with col1:
@@ -29,7 +56,7 @@ def render_planner_view():
         with col2:
             subjects_input = st.text_area(
                 "Subjects / Units to Cover (One per line):",
-                placeholder="Data Mining\nCloud Computing\nDatabase Systems\nSoftware Engineering",
+                value=preset_val,
                 height=110
             )
 
